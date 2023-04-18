@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
+        binding.appBarMain.fab.setOnClickListener {
+            startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
+        }
+
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -42,14 +46,14 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        binding.appBarMain.fab.setOnClickListener {
+       /* binding.appBarMain.fab.setOnClickListener {
             val currentFragmentId = navController.currentDestination?.id
             if(currentFragmentId == R.id.nav_places){
                 startActivity(Intent(applicationContext, RegisterPlacesActivity::class.java))
             }else if(currentFragmentId == R.id.nav_product) {
                 startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
             }
-        }
+        }*/ //utilizar o fab para duas activitys
     }
 
     override fun onSupportNavigateUp(): Boolean {

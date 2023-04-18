@@ -16,7 +16,7 @@ private lateinit var binding: ActivityShoppingListBinding
         binding = ActivityShoppingListBinding.inflate(layoutInflater)
 
         binding.buttonCreateList.setOnClickListener{
-            startActivity(Intent(this, RegisterProductAtivity::class.java))
+            TODO()
         }
 
 
