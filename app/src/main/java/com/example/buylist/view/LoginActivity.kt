@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.buylist.R
 import com.example.buylist.databinding.ActivityLoginBinding
 import com.example.buylist.viewmodel.LoginViewModel
 
@@ -15,13 +16,32 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //variaveis da classe
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+
+        //layout
+        setContentView(binding.root)
+
+        binding.buttonLogin.setOnClickListener(this)
+        binding.textRegister.setOnClickListener(this)
+
 
     }
 
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+    override fun onClick(v: View) {
+        if (v.id == R.id.button_login) {
+            handleLogin()
+        }
+    }
+
+    private fun handleLogin() {
+        val email = binding.editEmail.text.toString()
+        val password = binding.editPassword.text.toString()
+
+
+
     }
 }
 
