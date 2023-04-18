@@ -16,4 +16,5 @@
     <string name="all_lists">All Places Lists</string>
     <string name="all_products">All products</string>
     <string name="bought">Bought</string>
+    <string name="max_data">Clique para adicionar a data limite</string>
 </resources>

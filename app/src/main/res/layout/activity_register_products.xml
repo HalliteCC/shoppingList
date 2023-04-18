@@ -107,8 +107,8 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:gravity="center_vertical"
-        android:textColor="#029191"
-        android:hint="Clique para adicionar a data limite"
+        android:textColor="#000000"
+        android:hint="@string/max_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_date" />
