@@ -1,13 +1,14 @@
-package com.example.buylist.ui.home
+package com.example.buylist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ProductsViewModel : ViewModel() {
+class PlaceListViewModel: ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is gallery Fragment"
     }
     val text: LiveData<String> = _text
+
 }

@@ -1,4 +1,4 @@
-package com.example.buylist
+package com.example.buylist.view
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
+import com.example.buylist.R
 import com.example.buylist.databinding.ActivityRegisterProductsBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,7 +36,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener,
         if (v.id == R.id.button_date) {
             handleDate()
         }else if (v.id == R.id.button_save){
-
+            handleSave()
         }
 
     }
@@ -54,6 +55,10 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener,
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         DatePickerDialog(this, this, year, month, day).show()
+
+    }
+
+    fun handleSave(){
 
     }
 }

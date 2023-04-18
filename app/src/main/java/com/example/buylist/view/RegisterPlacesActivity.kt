@@ -1,4 +1,4 @@
-package com.example.buylist
+package com.example.buylist.view
 
 import android.app.DatePickerDialog
 import android.content.Intent

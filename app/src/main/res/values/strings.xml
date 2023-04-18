@@ -17,4 +17,9 @@
     <string name="all_products">All products</string>
     <string name="bought">Bought</string>
     <string name="max_data">Clique para adicionar a data limite</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="do_not_have_an_account">Do not have an account?</string>
+    <string name="sign_up">Sign up</string>
 </resources>

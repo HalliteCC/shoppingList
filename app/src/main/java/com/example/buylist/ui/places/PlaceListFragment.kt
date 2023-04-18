@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.buylist.databinding.FragmentAllListsBinding
+import com.example.buylist.viewmodel.PlaceListViewModel
 
 
 class PlaceListFragment : Fragment() {
