@@ -9,11 +9,6 @@ interface LoginDAO {
     @Insert
     fun insert(login: LoginModel): Long
 
-    @Update
-    fun update (login: LoginModel): Int
-
-    @Delete
-    fun delete(guest: LoginModel)
 
     @Query("SELECT * FROM login WHERE email = :email AND password = :password")
     fun getUser(email: String, password: String): LoginModel

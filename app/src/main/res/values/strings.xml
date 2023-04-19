@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -17,9 +18,10 @@
     <string name="all_products">All products</string>
     <string name="bought">Bought</string>
     <string name="max_data">Clique para adicionar a data limite</string>
-    <string name="email">email</string>
-    <string name="password">password</string>
-    <string name="login">login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
     <string name="do_not_have_an_account">Do not have an account?</string>
     <string name="sign_up">Sign up</string>
+    <string name="name">Name</string>
 </resources>

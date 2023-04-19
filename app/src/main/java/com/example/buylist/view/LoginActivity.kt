@@ -1,5 +1,6 @@
 package com.example.buylist.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         if (v.id == R.id.button_login) {
             handleLogin()
+        }else if (v.id == R.id.text_register){
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 

@@ -5,15 +5,18 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Login")
-class LoginModel {
+class LoginModel (
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int = 0
+    val id: Int = 0,
+
+    @ColumnInfo(name = "name")
+    val name: String,
 
     @ColumnInfo(name = "email")
-    var email: String = ""
+    val email: String,
 
     @ColumnInfo(name = "password")
-    var password: String = ""
-}
+    val password: String
+)
