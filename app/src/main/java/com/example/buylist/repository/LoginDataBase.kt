@@ -30,7 +30,7 @@ abstract class LoginDataBase : RoomDatabase() {
 
         private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("DELETE FROM Guest")
+                database.execSQL("DELETE FROM Login")
             }
 
         }

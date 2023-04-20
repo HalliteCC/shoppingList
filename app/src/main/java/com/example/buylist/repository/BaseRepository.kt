@@ -3,6 +3,11 @@ package com.example.buylist.repository
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import com.example.buylist.constants.BuyConstants
+import com.example.buylist.listener.Listener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 open class BaseRepository(val context: Context) {
 
@@ -20,4 +25,6 @@ open class BaseRepository(val context: Context) {
         }
         return result
     }
+
+
 }

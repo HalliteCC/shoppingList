@@ -1,6 +1,6 @@
 package com.example.buylist.model
 
-class ValidationModel (message: String = "") {
+class ValidationModel(message: String = "") {
     private var status: Boolean = true
     private var validationMessage = ""
 
