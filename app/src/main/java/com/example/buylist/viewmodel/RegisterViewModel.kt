@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.buylist.R
 import com.example.buylist.constants.BuyConstants
 import com.example.buylist.listener.Listener
 import com.example.buylist.model.LoginModel
@@ -17,22 +18,24 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     private val securityPrefereces = SecurityPreferences(application.applicationContext)
 
 
-    private val _register = MutableLiveData <ValidationModel>()
-    val register: LiveData <ValidationModel> = _register
+    private val _register = MutableLiveData<ValidationModel>()
+    val register: LiveData<ValidationModel> = _register
 
 
     fun get(email: String, password: String): LoginModel {
         return loginRepository.get(email, password)
     }
 
-    fun create(name: String, email: String, password: String){
+    fun create(name: String, email: String, password: String) {
         val verification = loginRepository.get(email, password)
-        if(verification != null){
-            _register.value = ValidationModel("Email cadastrado")
+        if (verification != null) {
+            _register.value =
+                ValidationModel(getApplication<Application>().applicationContext.getString(R.string.already_registered))
             return
         }
         if (name.isBlank() || email.isBlank() || password.isBlank()) {
-            _register.value = ValidationModel("Por favor, preencha todos os campos")
+            _register.value =
+                ValidationModel(getApplication<Application>().applicationContext.getString(R.string.fill_all_fields))
             return
         }
         loginRepository.insert(LoginModel(name = name, email = email, password = password),
