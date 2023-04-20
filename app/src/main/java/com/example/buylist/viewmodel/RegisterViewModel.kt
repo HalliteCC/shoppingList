@@ -26,6 +26,15 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun create(name: String, email: String, password: String){
+        val verification = loginRepository.get(email, password)
+        if(verification != null){
+            _register.value = ValidationModel("Email cadastrado")
+            return
+        }
+        if (name.isBlank() || email.isBlank() || password.isBlank()) {
+            _register.value = ValidationModel("Por favor, preencha todos os campos")
+            return
+        }
         loginRepository.insert(LoginModel(name = name, email = email, password = password),
             object : Listener<LoginModel> {
                 override fun onSuccess(result: LoginModel) {

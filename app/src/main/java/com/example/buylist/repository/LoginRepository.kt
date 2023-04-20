@@ -13,9 +13,12 @@ class LoginRepository(context: Context) : BaseRepository(context) {
         if(!isConectionAvaliable()){
             listener.onFaliure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
-        }else {
-            loginDataBase.insert(login) > 0
+        }
+        val id = loginDataBase.insert(login)
+        if(id > 0){
             listener.onSuccess(login)
+        }else{
+            listener.onFaliure("Usuário já cadastrado")
         }
     }
 
