@@ -4,19 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.ui.*
 import com.example.buylist.R
 import com.example.buylist.databinding.ActivityMainBinding
+import com.example.buylist.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,13 +25,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
             startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
         }
 
+        //Navigation
+        setupNavigation()
 
+        viewModel.loadUserName()
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun setupNavigation() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -38,24 +53,30 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_places, R.id.nav_product, R.id.nav_slideshow
+                R.id.nav_places, R.id.nav_product, R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-       /* binding.appBarMain.fab.setOnClickListener {
-            val currentFragmentId = navController.currentDestination?.id
-            if(currentFragmentId == R.id.nav_places){
-                startActivity(Intent(applicationContext, RegisterPlacesActivity::class.java))
-            }else if(currentFragmentId == R.id.nav_product) {
-                startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
+        navView.setNavigationItemSelectedListener {
+            if (it.itemId == R.id.nav_logout) {
+                viewModel.logout()
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }else {
+                NavigationUI.onNavDestinationSelected(it, navController)
+                drawerLayout.closeDrawer(GravityCompat.START)
             }
-        }*/ //utilizar o fab para duas activitys
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+            true
+        }
     }
 }
+
+/* binding.appBarMain.fab.setOnClickListener {
+       val currentFragmentId = navController.currentDestination?.id
+       if(currentFragmentId == R.id.nav_places){
+           startActivity(Intent(applicationContext, RegisterPlacesActivity::class.java))
+       }else if(currentFragmentId == R.id.nav_product) {
+           startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
+       }
+   }*/ //utilizar o fab para duas activitys

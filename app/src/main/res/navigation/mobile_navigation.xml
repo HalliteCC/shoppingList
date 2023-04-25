@@ -17,9 +17,4 @@
         android:label="All Products"
         tools:layout="@layout/fragment_products" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.buylist.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>

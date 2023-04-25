@@ -13,7 +13,7 @@
             android:icon="@drawable/baseline_shopping_cart_24"
             android:title="@string/all_products" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_logout"
             android:icon="@drawable/baseline_logout_24"
             android:title="Log out" />
     </group>
