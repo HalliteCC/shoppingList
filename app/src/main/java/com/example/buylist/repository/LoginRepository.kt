@@ -27,4 +27,18 @@ class LoginRepository(context: Context) : BaseRepository(context) {
         return loginDataBase.getUser(email, password)
     }
 
+    fun login (email: String, password: String, listener: Listener<LoginModel>){
+        if(!isConectionAvaliable()){
+            listener.onFaliure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
+            return
+        }
+        val user = loginDataBase.getUser(email, password)
+        if (user == null){
+            listener.onFaliure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
+            return
+        }else {
+            listener.onSuccess(user)
+        }
+    }
+
 }
