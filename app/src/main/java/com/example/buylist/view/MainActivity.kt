@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         //Navigation
         setupNavigation()
 
-        viewModel.loadUserName()
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

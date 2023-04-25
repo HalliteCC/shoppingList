@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background"
+    android:padding="6dp"
     android:layout_margin="8dp">
 
     <ImageView
@@ -23,43 +24,66 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:text="@string/product"
         app:layout_constraintStart_toEndOf="@id/image_task"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        style="@style/EditTextWhite"
+        android:id="@+id/text_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/quantity"
+        app:layout_constraintStart_toEndOf="@id/image_task"
+        app:layout_constraintTop_toBottomOf="@id/text_product" />
+    <TextView
+        style="@style/EditTextWhite"
+        android:id="@+id/x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="x"
+        app:layout_constraintStart_toEndOf="@id/text_quantity"
+        app:layout_constraintTop_toTopOf="@id/text_quantity"
+        app:layout_constraintEnd_toStartOf="@id/text_price"
+        />
     <TextView
         style="@style/EditTextWhite"
         android:id="@+id/text_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Price"
-        app:layout_constraintStart_toEndOf="@id/text_product"
-        app:layout_constraintTop_toBottomOf="@id/text_product"
-        app:layout_constraintBottom_toTopOf="@id/text_priority"/>
+        android:layout_marginStart="4dp"
+        android:text="@string/unit_price"
+        app:layout_constraintStart_toEndOf="@id/x"
+        app:layout_constraintTop_toTopOf="@id/text_quantity"
+        />
 
     <TextView
         style="@style/EditTextWhite"
-        android:id="@+id/text_priority"
+        android:id="@+id/Price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:text="Total Price"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_product" />
+
+    <TextView
+        style="@style/EditTextWhite"
+        android:id="@+id/Priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/prioridade"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/image_task"
-        app:layout_constraintTop_toBottomOf="@id/text_product" />
 
-    <TextView
-        style="@style/EditTextWhite"
-        android:id="@+id/text_due_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/data_limite"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Price" />
 
     <View
         android:id="@+id/view"
@@ -69,6 +93,6 @@
         android:background="#ececec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_priority" />
+        app:layout_constraintTop_toBottomOf="@id/Priority" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

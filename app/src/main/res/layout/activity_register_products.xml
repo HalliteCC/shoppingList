@@ -13,40 +13,79 @@
         android:layout_height="231dp"
         android:src="@drawable/img"
         app:layout_constraintBottom_toTopOf="@id/edit_description"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        style="@style/EditTextWhite"
         android:id="@+id/edit_description"
+        style="@style/EditTextWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#fafafa"
         android:layout_marginTop="16dp"
-        android:hint="What do you need to buy?"
+        android:backgroundTint="#fafafa"
+        android:gravity="center"
+        android:hint="@string/product_s_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_logo" />
+
     <View
-        style="@style/viewDivider"
         android:id="@+id/view_description"
+        style="@style/viewDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_description" />
 
-    <TextView
+
+    <EditText
+        android:id="@+id/edit_quantity"
         style="@style/EditTextWhite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#fafafa"
+        android:gravity="center"
+        android:hint="@string/quantity"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/edit_price"
+        app:layout_constraintTop_toBottomOf="@id/view_description" />
+
+    <EditText
+        android:id="@+id/edit_price"
+        style="@style/EditTextWhite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#fafafa"
+        android:gravity="center"
+        android:hint="@string/price"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@id/edit_quantity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_description" />
+
+
+    <View
+        android:id="@+id/view_price"
+        style="@style/viewDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_price" />
+
+    <TextView
         android:id="@+id/text_priority"
+        style="@style/EditTextWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/prioridade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_description" />
+        app:layout_constraintTop_toBottomOf="@+id/view_price" />
 
     <Spinner
         android:id="@+id/spinner_priority"
@@ -58,8 +97,8 @@
         app:layout_constraintTop_toBottomOf="@+id/text_priority" />
 
     <View
-        style="@style/viewDivider"
         android:id="@+id/view_complete"
+        style="@style/viewDivider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,60 +106,27 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_priority" />
 
     <CheckBox
-        style="@style/EditTextWhite"
         android:id="@+id/check_complete"
+        style="@style/EditTextWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/bought"
         android:buttonTint="@color/purple_700"
+        android:text="@string/bought"
         android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_complete" />
 
     <View
-        style="@style/viewDivider"
         android:id="@+id/view_date"
+        style="@style/viewDivider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/check_complete" />
 
-    <TextView
-        style="@style/EditTextWhite"
-        android:id="@+id/text_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/data_limite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_date" />
-
-    <Button
-        style="@style/EditTextWhite"
-        android:id="@+id/button_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:gravity="center_vertical"
-        android:textColor="#000000"
-        android:hint="@string/max_data"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_date" />
-
-    <View
-        style="@style/viewDivider"
-        android:id="@+id/view_save"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_date" />
 
     <Button
         android:id="@+id/button_save"

@@ -18,7 +18,4 @@ class MainViewModel (application: Application) : AndroidViewModel(application){
         securityPreferences.remove(BuyConstants.LOGIN.KEY_EMAIL)
     }
 
-    fun loadUserName(){
-        _name.value = securityPreferences.get(BuyConstants.LOGIN.PERSON_NAME).toString()
-    }
 }

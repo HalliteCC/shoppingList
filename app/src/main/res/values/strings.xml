@@ -27,4 +27,8 @@
     <string name="name">Name</string>
     <string name="already_registered">Email is already registered</string>
     <string name="fill_all_fields">\"Please, fill in all fields \"</string>
+    <string name="product_s_name">Product\'s Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="unit_price">unit_Price</string>
 </resources>
