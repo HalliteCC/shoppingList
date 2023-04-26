@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
-            startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
+            startActivity(Intent(applicationContext, BuyListActivity::class.java))
         }
 
         //Navigation

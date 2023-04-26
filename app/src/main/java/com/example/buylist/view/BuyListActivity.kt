@@ -1,15 +1,12 @@
 package com.example.buylist.view
 
-import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buylist.databinding.ActivityShoppingListBinding
-import java.util.*
 
-class RegisterPlacesActivity : AppCompatActivity()  {
+class BuyListActivity : AppCompatActivity()  {
 
     private lateinit var binding: ActivityShoppingListBinding
 
@@ -19,7 +16,7 @@ class RegisterPlacesActivity : AppCompatActivity()  {
         binding = ActivityShoppingListBinding.inflate(layoutInflater)
 
         binding.buttonCreateList.setOnClickListener {
-            TODO()
+            startActivity(Intent(this, RegisterProductAtivity::class.java ))
         }
 
 

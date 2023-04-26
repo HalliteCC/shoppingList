@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterPlacesActivity"
+            android:name=".view.BuyListActivity"
             android:exported="true">
         </activity>
         <activity
