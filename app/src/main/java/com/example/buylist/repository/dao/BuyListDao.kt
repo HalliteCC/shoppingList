@@ -1,4 +1,4 @@
-package com.example.buylist.repository
+package com.example.buylist.repository.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -11,13 +11,16 @@ import com.example.buylist.model.BuyListModel
 interface BuyListDao {
 
     @Insert
-    fun insertList(buyList: BuyListModel)
+    fun insertList(buyList: BuyListModel): Long
 
     @Delete
     fun deleteList(buyList: BuyListModel)
 
     @Update
-    fun updateList (buyList: BuyListModel)
+    fun updateList (buyList: BuyListModel): Int
+
+    @Query("SELECT * FROM BuyList WHERE id = :id")
+    fun get(id: Int): BuyListModel
 
     @Query("SELECT * FROM BuyList")
     fun getList(): List<BuyListModel>

@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.buylist.model.LoginModel
+import com.example.buylist.repository.dao.BuyListDao
+import com.example.buylist.repository.dao.LoginDAO
+import com.example.buylist.repository.dao.ProductsDAO
 
 @Database(entities = [LoginModel::class], version = 1)
 abstract class LoginDataBase : RoomDatabase() {

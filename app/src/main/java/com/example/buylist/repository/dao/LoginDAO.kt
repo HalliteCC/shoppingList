@@ -1,4 +1,4 @@
-package com.example.buylist.repository
+package com.example.buylist.repository.dao
 
 import androidx.room.*
 import com.example.buylist.model.LoginModel
