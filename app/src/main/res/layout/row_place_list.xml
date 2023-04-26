@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/product"
+        android:text="Buy List"
         app:layout_constraintStart_toEndOf="@id/image_task"
         app:layout_constraintTop_toTopOf="@id/image_task"
         app:layout_constraintBottom_toBottomOf="@id/image_task"/>

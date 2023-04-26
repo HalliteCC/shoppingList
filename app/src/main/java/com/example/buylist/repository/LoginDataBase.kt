@@ -12,6 +12,8 @@ import com.example.buylist.model.LoginModel
 abstract class LoginDataBase : RoomDatabase() {
 
     abstract fun loginDao(): LoginDAO
+    abstract fun buyListDao(): BuyListDao
+    abstract fun productsDao(): ProductsDAO
 
     companion object {
         private lateinit var INSTANCE: LoginDataBase

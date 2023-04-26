@@ -1,0 +1,25 @@
+package com.example.buylist.repository
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
+import com.example.buylist.model.BuyListModel
+
+@Dao
+interface BuyListDao {
+
+    @Insert
+    fun insertList(buyList: BuyListModel)
+
+    @Delete
+    fun deleteList(buyList: BuyListModel)
+
+    @Update
+    fun updateList (buyList: BuyListModel)
+
+    @Query("SELECT * FROM BuyList")
+    fun getList(): List<BuyListModel>
+
+}
