@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.buylist.databinding.FragmentAllListsBinding
-import com.example.buylist.viewmodel.PlaceListViewModel
+import com.example.buylist.viewmodel.BuyListViewModel
 
 
 class PlaceListFragment : Fragment() {
 
-    private lateinit var viewModel: PlaceListViewModel
+    private lateinit var viewModel: BuyListViewModel
     private var _binding: FragmentAllListsBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,7 +24,7 @@ class PlaceListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(PlaceListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(BuyListViewModel::class.java)
 
         _binding = FragmentAllListsBinding.inflate(inflater, container, false)
 
