@@ -8,17 +8,17 @@ import com.example.buylist.model.ProductsModel
 interface ProductsDAO {
 
     @Insert
-    fun insertProduct(products: ProductsModel): Long
+    fun insertProduct(productsList: ProductsModel): Long
 
     @Delete
-    fun deleteProduct(products: ProductsModel)
+    fun deleteProduct(productsList: ProductsModel)
 
     @Update
-    fun updateProduct (products: ProductsModel): Int
+    fun updateProduct (productsList: ProductsModel): Int
 
-    @Query("SELECT * FROM products WHERE id = :id")
+    @Query("SELECT * FROM productsList WHERE id = :id")
     fun get(id: Int): ProductsModel
 
-    @Query("SELECT * FROM products")
+    @Query("SELECT * FROM productsList")
     fun getAllProduct(): List<ProductsModel>
 }

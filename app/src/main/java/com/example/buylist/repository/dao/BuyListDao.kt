@@ -11,13 +11,13 @@ import com.example.buylist.model.BuyListModel
 interface BuyListDao {
 
     @Insert
-    fun insertList(buyList: BuyListModel): Long
+    fun insertList(BuyList: BuyListModel): Long
 
     @Delete
-    fun deleteList(buyList: BuyListModel)
+    fun deleteList(BuyList: BuyListModel)
 
     @Update
-    fun updateList (buyList: BuyListModel): Int
+    fun updateList (BuyList: BuyListModel): Int
 
     @Query("SELECT * FROM BuyList WHERE id = :id")
     fun get(id: Int): BuyListModel

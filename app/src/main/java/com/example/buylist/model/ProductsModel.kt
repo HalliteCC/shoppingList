@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "products")
+@Entity(tableName = "productsList")
 class ProductsModel {
 
     @PrimaryKey(autoGenerate = true)
@@ -15,12 +15,12 @@ class ProductsModel {
     @ColumnInfo(name = "products")
     var products: String = ""
 
-    @ColumnInfo(name = "products")
-    var price: String = ""
+    @ColumnInfo(name = "price")
+    var price: Double = 0.0
 
-    @ColumnInfo(name = "products")
+    @ColumnInfo(name = "quatity")
     var quatity: String = ""
 
-    @ColumnInfo(name = "products")
+    @ColumnInfo(name = "priority")
     var priority: String = ""
 }

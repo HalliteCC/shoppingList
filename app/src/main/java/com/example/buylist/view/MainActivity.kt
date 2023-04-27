@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.ui.*
 import com.example.buylist.R
 import com.example.buylist.databinding.ActivityMainBinding
+import com.example.buylist.databinding.ActivityShoppingListBinding
 import com.example.buylist.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -29,9 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener {
-            startActivity(Intent(applicationContext, BuyListActivity::class.java))
-        }
 
         //Navigation
         setupNavigation()
@@ -57,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        //Logout
         navView.setNavigationItemSelectedListener {
             if (it.itemId == R.id.nav_logout) {
                 viewModel.logout()
@@ -67,14 +66,17 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        //FAB para duas activity
+        binding.appBarMain.fab.setOnClickListener {
+            val currentFragmentId = navController.currentDestination?.id
+            if(currentFragmentId == R.id.nav_places){
+                startActivity(Intent(applicationContext, BuyListActivity::class.java))
+            }else if(currentFragmentId == R.id.nav_product) {
+                startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
+            }
+        }
     }
 }
 
-/* binding.appBarMain.fab.setOnClickListener {
-       val currentFragmentId = navController.currentDestination?.id
-       if(currentFragmentId == R.id.nav_places){
-           startActivity(Intent(applicationContext, RegisterPlacesActivity::class.java))
-       }else if(currentFragmentId == R.id.nav_product) {
-           startActivity(Intent(applicationContext, RegisterProductAtivity::class.java))
-       }
-   }*/ //utilizar o fab para duas activitys
+

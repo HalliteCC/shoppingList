@@ -20,7 +20,7 @@
 
     <TextView
         style="@style/EditTextWhite"
-        android:id="@+id/text_product"
+        android:id="@+id/text_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,7 +39,7 @@
         android:background="#ececec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_product" />
+        app:layout_constraintTop_toBottomOf="@+id/text_list_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
