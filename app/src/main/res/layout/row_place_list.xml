@@ -4,32 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background"
-    android:padding="8dp"
+    android:padding="16dp"
     android:layout_margin="8dp">
-
-    <ImageView
-        android:id="@+id/image_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_todo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/text_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Buy List"
-        app:layout_constraintStart_toEndOf="@id/image_task"
-        app:layout_constraintTop_toTopOf="@id/image_task"
-        app:layout_constraintBottom_toBottomOf="@id/image_task"/>
-
-
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view"

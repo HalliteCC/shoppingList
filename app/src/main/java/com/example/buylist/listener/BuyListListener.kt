@@ -8,9 +8,4 @@ interface BuyListListener {
     //Remoção
     fun onDeleteClick(id: Int)
 
-    //Completar tarefa
-    fun onCompleteClick(id: Int)
-
-    //Descompletar Tarefa
-    fun onUndoClick(id: Int)
 }

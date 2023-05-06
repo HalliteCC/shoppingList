@@ -1,7 +1,5 @@
 package com.example.buylist.view
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,33 +10,33 @@ import com.example.buylist.R
 import com.example.buylist.constants.BuyConstants
 import com.example.buylist.databinding.ActivityShoppingListBinding
 import com.example.buylist.model.BuyListModel
-import com.example.buylist.viewmodel.BuyListViewModel
+import com.example.buylist.viewmodel.AllPlacesViewModel
+import com.example.buylist.viewmodel.PlacesViewModel
 
 class BuyListActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityShoppingListBinding
-    private lateinit var viewModel: BuyListViewModel
+    private lateinit var viewModel: PlacesViewModel
+
     private var listId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityShoppingListBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this).get(BuyListViewModel::class.java)
-
-        binding.buttonCreateList.setOnClickListener (this)
-
-
-        loadData()
-        observer()
-
-
         // Layout
         setContentView(binding.root)
+
+        viewModel = ViewModelProvider(this).get(PlacesViewModel::class.java)
+
+        binding.buttonCreateList.setOnClickListener(this)
+
+        observer()
+        loadData()
     }
 
     override fun onClick(v: View) {
-        if(v.id == R.id.button_create_list){
+        if (v.id == R.id.button_create_list) {
             val listName = binding.editDescription.text.toString()
 
             val model = BuyListModel().apply {
@@ -46,38 +44,37 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
                 this.listName = listName
             }
             toast(model)
-            viewModel.insert(model)
         }
     }
 
-    fun loadData(){
+    fun loadData() {
         val bundle = intent.extras
-        if (bundle != null){
-            listId = bundle.getInt(BuyConstants.LOGIN.ID)
+        if (bundle != null) {
+            listId = bundle.getInt(BuyConstants.LIST.LIST_ID)
             viewModel.get(listId)
         }
     }
 
-    private fun observer(){
-        viewModel.buyList.observe(this, Observer{
+    private fun observer() {
+        viewModel.place.observe(this, Observer {
             binding.editDescription.setText(it.listName)
         })
     }
 
-    fun toast (buyList: BuyListModel){
+    fun toast(buyList: BuyListModel) {
 
         val name = binding.editDescription.text.toString()
 
         //Verificação se já existe a Lista
-        if (listId == 0 &&  name != "") {
+        if (listId == 0 && name != "") {
             viewModel.insert(buyList)
             Toast.makeText(applicationContext, "Lista Criada", Toast.LENGTH_SHORT).show()
             finish()
-        }else if (listId != 0 && name != "") {
+        } else if (listId != 0 && name != "") {
             viewModel.update(buyList)
             Toast.makeText(applicationContext, "Lista Modificada", Toast.LENGTH_SHORT).show()
             finish()
-        }else {
+        } else {
             Toast.makeText(applicationContext, "FALHA", Toast.LENGTH_SHORT).show()
         }
     }

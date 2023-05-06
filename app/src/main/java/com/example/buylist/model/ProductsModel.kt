@@ -15,12 +15,15 @@ class ProductsModel {
     @ColumnInfo(name = "products")
     var products: String = ""
 
-    @ColumnInfo(name = "price")
+    @ColumnInfo(name = "total price")
+    var totalPrice: Double = 0.0
+
+    @ColumnInfo (name = "price")
     var price: Double = 0.0
 
     @ColumnInfo(name = "quatity")
-    var quatity: String = ""
+    var quantity: Int = 0
 
-    @ColumnInfo(name = "priority")
-    var priority: String = ""
+    @ColumnInfo(name = "completed")
+    var completed: Boolean = false
 }

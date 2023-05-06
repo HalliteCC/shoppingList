@@ -63,38 +63,12 @@
         android:backgroundTint="#fafafa"
         android:gravity="center"
         android:hint="@string/price"
+        android:text="$ "
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toStartOf="@id/edit_quantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_description" />
 
-
-    <View
-        android:id="@+id/view_price"
-        style="@style/viewDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_price" />
-
-    <TextView
-        android:id="@+id/text_priority"
-        style="@style/EditTextWhite"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/prioridade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_price" />
-
-    <Spinner
-        android:id="@+id/spinner_priority"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#c1c1c1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_priority" />
 
     <View
         android:id="@+id/view_complete"
@@ -103,7 +77,7 @@
         android:layout_height="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_priority" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_price" />
 
     <CheckBox
         android:id="@+id/check_complete"

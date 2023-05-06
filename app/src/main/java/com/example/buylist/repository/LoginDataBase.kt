@@ -26,7 +26,7 @@ abstract class LoginDataBase : RoomDatabase() {
         fun getDataBase(context: Context): LoginDataBase {
             if (!::INSTANCE.isInitialized) {
                 synchronized(LoginDataBase::class) {
-                    INSTANCE = Room.databaseBuilder(context, LoginDataBase::class.java, "guestdb")
+                    INSTANCE = Room.databaseBuilder(context, LoginDataBase::class.java, "buydb")
                         .addMigrations(MIGRATION_LOGIN_1_2)
                         .addMigrations(MIGRATION_BUYLIST_1_2)
                         .addMigrations(MIGRATION_PRODUCTS_1_2)

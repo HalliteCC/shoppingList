@@ -65,25 +65,16 @@
 
     <TextView
         style="@style/EditTextWhite"
-        android:id="@+id/Price"
+        android:id="@+id/Total_Price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Price"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/text_product" />
+        app:layout_constraintTop_toTopOf="@id/text_product"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <TextView
-        style="@style/EditTextWhite"
-        android:id="@+id/Priority"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/prioridade"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Price" />
 
     <View
         android:id="@+id/view"
@@ -93,6 +84,6 @@
         android:background="#ececec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Priority" />
+        app:layout_constraintTop_toBottomOf="@id/text_quantity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

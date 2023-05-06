@@ -11,7 +11,7 @@ import com.example.buylist.model.BuyListModel
 interface BuyListDao {
 
     @Insert
-    fun insertList(BuyList: BuyListModel): Long
+    fun insertList(buyList: BuyListModel): Long
 
     @Delete
     fun deleteList(BuyList: BuyListModel)

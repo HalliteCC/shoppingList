@@ -12,12 +12,13 @@ class BuyListRepository(context: Context) {
         return loginDataBase.insertList(buyList) > 0
     }
 
-    fun uptadeList(buyList: BuyListModel): Boolean {
+    fun updateList(buyList: BuyListModel): Boolean {
         return loginDataBase.updateList(buyList) > 0
     }
 
     fun deleteList(id: Int) {
         val list = get(id)
+        loginDataBase.deleteList(list)
     }
 
     fun get(id: Int): BuyListModel {
