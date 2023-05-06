@@ -21,6 +21,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     val login: LiveData<ValidationModel> = _login
 
 
+
     fun doLogin(email: String, password: String){
         if (email.isBlank() || password.isBlank()) {
             _login.value =
@@ -44,8 +45,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-
     fun verifyAuthentication(){
-        val getEmail = securityPrefereces.get((BuyConstants.LOGIN.KEY_EMAIL))
+        val getID = securityPrefereces.get(BuyConstants.LOGIN.ID)
+        val getEmail = securityPrefereces.get(BuyConstants.LOGIN.KEY_EMAIL)
+
+        if (getEmail != ""){
+            _login.value = ValidationModel()
+        }
     }
 }

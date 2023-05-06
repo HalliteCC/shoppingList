@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.buttonLogin.setOnClickListener(this)
         binding.textRegister.setOnClickListener(this)
 
+
         observe()
     }
 
@@ -44,6 +45,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun observe() {
+        viewModel.verifyAuthentication()
         viewModel.login.observe(this) {
             if (it.status()) {
                 startActivity(Intent(applicationContext, MainActivity::class.java))
@@ -55,7 +57,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun biometricAuthentication (){
+    private fun handleLogin() {
+        val email = binding.editEmail.text.toString()
+        val password = binding.editPassword.text.toString()
+
+        viewModel.doLogin(email, password)
+
+    }
+}
+
+/*private fun biometricAuthentication (){
         if (BiometricHelper.isBiometricAvailable(this)) {
 
             val executor = ContextCompat.getMainExecutor(this)
@@ -77,14 +88,4 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
             bio.authenticate(info)
         }
-    }
-
-    private fun handleLogin() {
-        val email = binding.editEmail.text.toString()
-        val password = binding.editPassword.text.toString()
-
-        viewModel.doLogin(email, password)
-
-    }
-}
-
+    }*/
