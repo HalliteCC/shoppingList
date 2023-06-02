@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_places"
         android:name="com.example.buylist.ui.places.PlaceListFragment"
-        android:label="Place's List"
+        android:label="All Shopping Lists"
         tools:layout="@layout/fragment_buy_lists"/>
 
     <fragment

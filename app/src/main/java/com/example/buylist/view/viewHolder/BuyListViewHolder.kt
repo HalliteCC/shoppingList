@@ -23,9 +23,7 @@ class BuyListViewHolder(private val itemBinding: RowPlaceListBinding, private va
         }
 
 
-        itemBinding.imgEdit.setOnClickListener {
-            listener.onListClick(list.id)
-        }
+        itemBinding.imgEdit.setOnClickListener {listener.onListClick(list.id) }
 
         itemBinding.textListName.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)
