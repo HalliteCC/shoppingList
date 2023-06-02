@@ -10,7 +10,6 @@ import com.example.buylist.R
 import com.example.buylist.constants.BuyConstants
 import com.example.buylist.databinding.ActivityShoppingListBinding
 import com.example.buylist.model.BuyListModel
-import com.example.buylist.viewmodel.AllPlacesViewModel
 import com.example.buylist.viewmodel.PlacesViewModel
 
 class BuyListActivity : AppCompatActivity(), View.OnClickListener {
@@ -47,7 +46,7 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun loadData() {
+    private fun loadData() {
         val bundle = intent.extras
         if (bundle != null) {
             listId = bundle.getInt(BuyConstants.LIST.LIST_ID)
@@ -56,12 +55,12 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun observer() {
-        viewModel.place.observe(this, Observer {
+       viewModel.place.observe(this, Observer {
             binding.editListName.setText(it.listName)
         })
     }
 
-    fun toast(buyList: BuyListModel) {
+    private fun toast(buyList: BuyListModel) {
 
         val name = binding.editListName.text.toString()
 

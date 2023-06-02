@@ -12,7 +12,7 @@ class PlacesViewModel(application: Application) : AndroidViewModel(application) 
     private val buyListRepository = BuyListRepository(application.applicationContext)
 
     private val _place = MutableLiveData<BuyListModel>()
-    val place: LiveData<BuyListModel> = _place
+    var place: LiveData<BuyListModel> = _place
 
     fun get(id: Int){
         _place.value = buyListRepository.get(id)

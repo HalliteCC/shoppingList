@@ -48,7 +48,7 @@ class PlaceListFragment : Fragment() {
 
                 val intent = Intent(context, BuyListActivity::class.java)
                 val bundle = Bundle()
-                bundle.putInt(BuyConstants.LOGIN.ID, id)
+                bundle.putInt(BuyConstants.LIST.LIST_ID, id)
                 intent.putExtras(bundle)
 
                 startActivity(intent)
