@@ -18,7 +18,7 @@
         />
 
     <EditText
-        android:id="@+id/edit_description"
+        android:id="@+id/edit_list_name"
         style="@style/EditTextWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

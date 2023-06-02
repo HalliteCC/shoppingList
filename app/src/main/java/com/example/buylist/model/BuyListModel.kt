@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 @Entity (tableName = "BuyList")
 class BuyListModel {
 
-    @PrimaryKey (autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0
 

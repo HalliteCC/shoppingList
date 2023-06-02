@@ -45,17 +45,19 @@ class PlaceListFragment : Fragment() {
         //Click Event
         val listener = object : BuyListListener {
             override fun onListClick(id: Int) {
+
                 val intent = Intent(context, BuyListActivity::class.java)
                 val bundle = Bundle()
                 bundle.putInt(BuyConstants.LOGIN.ID, id)
                 intent.putExtras(bundle)
+
                 startActivity(intent)
             }
 
             override fun onDeleteClick(id: Int) {
                 viewModel.delete(id)
                 viewModel.getAll()
-                Toast.makeText(context, "Convidado removido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Lista removida", Toast.LENGTH_SHORT).show()
             }
 
         }

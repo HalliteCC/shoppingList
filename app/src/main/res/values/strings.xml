@@ -9,16 +9,11 @@
     <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
     <string name="ERROR_LOGIN">User or Password Incorret.</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+
     <string name="product">Product</string>
-    <string name="data_limite">Data Limite</string>
-    <string name="prioridade">Priority</string>
-    <string name="all_lists">All Places Lists</string>
-    <string name="all_products">All products</string>
+    <string name="all_lists">Shopping Lists</string>
+    <string name="all_products">Item Lists</string>
     <string name="bought">Bought</string>
-    <string name="max_data">Clique para adicionar a data limite</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

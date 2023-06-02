@@ -37,7 +37,7 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_create_list) {
-            val listName = binding.editDescription.text.toString()
+            val listName = binding.editListName.text.toString()
 
             val model = BuyListModel().apply {
                 this.id = listId
@@ -57,13 +57,13 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun observer() {
         viewModel.place.observe(this, Observer {
-            binding.editDescription.setText(it.listName)
+            binding.editListName.setText(it.listName)
         })
     }
 
     fun toast(buyList: BuyListModel) {
 
-        val name = binding.editDescription.text.toString()
+        val name = binding.editListName.text.toString()
 
         //Verificação se já existe a Lista
         if (listId == 0 && name != "") {
