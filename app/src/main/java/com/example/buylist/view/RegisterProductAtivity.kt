@@ -44,19 +44,29 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save) {
-            val product = R.id.edit_description.toString()
-            val quantity = R.id.edit_quantity.toString()
-            val price = R.id.edit_price.toString()
-            if (product == "" || quantity == "" || price == "") {
-                Toast.makeText(applicationContext, R.string.fill_all_fields, Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                handleSave()
+            val product = binding.editDescription.text.toString()
+            var strQ = binding.editQuantity.text.toString()
+            val str = binding.editPrice.text.toString()
+            if(product != "" || str != "" || strQ !=""){
+                var quantity = strQ.toInt()
+                var price = str.toDouble()
+                val check = binding.checkComplete.isChecked
+                val model = ProductsModel().apply {
+                    this.id = productId
+                    this.products = product
+                    this.price = price
+                    this.quantity = quantity
+                    this.completed = check
+                    this.totalPrice = price * quantity
+                }
+                toast(model)
+            }else {
+                Toast.makeText(applicationContext, "FALHA", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    fun loadData() {
+    private fun loadData() {
         val bundle = intent.extras
         if (bundle != null) {
             productId = bundle.getInt(BuyConstants.LIST.LIST_ID)
@@ -64,40 +74,25 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun observe() {
+     fun observe() {
         viewModel.productSave.observe(this, Observer {
             binding.editDescription.setText(it.products)
         })
     }
 
-    fun handleSave() {
-        val product = binding.editDescription.text.toString()
-        val str_q = binding.editQuantity.text.toString()
-        val quantity = str_q.toInt()
-        val str = binding.editPrice.text.toString()
-        val price = str.toDouble()
-        val check = binding.checkComplete.isChecked
 
-        val model = ProductsModel().apply {
-            this.id = productId
-            this.products = product
-            this.price = price
-            this.quantity = quantity
-            this.completed = check
-        }
-        toast(model)
-    }
-
-    fun toast(productList: ProductsModel) {
+     fun toast(productList: ProductsModel) {
 
         val name = binding.editDescription.text.toString()
+        val strQ = binding.editQuantity.text.toString()
+        val str = binding.editPrice.text.toString()
 
         //Verificação se já existe a Lista
-        if (productId == 0 && name != "") {
+        if (productId == 0 && name != "" && strQ != "" && str != "") {
             viewModel.insetProduct(productList)
             Toast.makeText(applicationContext, "Produto Criado", Toast.LENGTH_SHORT).show()
             finish()
-        } else if (productId != 0 && name != "") {
+        } else if (productId != 0 && name != "" && strQ != "" && str != "") {
             viewModel.updateProduct(productList)
             Toast.makeText(applicationContext, "Produto Modificado", Toast.LENGTH_SHORT).show()
             finish()
