@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +48,9 @@ class ProductsFragment : Fragment() {
             }
 
             override fun onDelete(id: Int) {
-                TODO("Not yet implemented")
+                viewModel.delete(id)
+                viewModel.getAll()
+                Toast.makeText(context, "Produto removido", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCompleteClick(id: Int) {
@@ -60,6 +63,8 @@ class ProductsFragment : Fragment() {
         }
         adapter.attachListener(listener)
 
+        observe()
+
         return binding.root
     }
     override fun onResume() {
@@ -70,5 +75,10 @@ class ProductsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun observe() {
+        viewModel.product.observe(viewLifecycleOwner) {
+            adapter.updateProduct(it)
+        }
     }
 }

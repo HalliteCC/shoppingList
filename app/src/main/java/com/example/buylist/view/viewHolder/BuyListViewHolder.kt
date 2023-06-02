@@ -1,5 +1,6 @@
 package com.example.buylist.view.viewHolder
 
+import android.app.FragmentManager
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -9,12 +10,17 @@ import com.example.buylist.databinding.RowPlaceListBinding
 import com.example.buylist.listener.BuyListListener
 import com.example.buylist.model.BuyListModel
 import com.example.buylist.ui.home.ProductsFragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 
 class BuyListViewHolder(private val itemBinding: RowPlaceListBinding, private val listener: BuyListListener)
     : RecyclerView.ViewHolder(itemBinding.root) {
 
     fun bindData(list: BuyListModel) {
         itemBinding.textListName.text = list.listName
+        itemBinding.textListName.setOnClickListener {
+
+        }
 
 
         itemBinding.imgEdit.setOnClickListener {
@@ -31,8 +37,9 @@ class BuyListViewHolder(private val itemBinding: RowPlaceListBinding, private va
                 .show()
             true
         }
-    }
 
+
+    }
 
 }
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.buylist.databinding.RowProductListBinding
 import com.example.buylist.listener.BuyListListener
 import com.example.buylist.listener.ProductListener
+import com.example.buylist.model.BuyListModel
 import com.example.buylist.model.ProductsModel
 import com.example.buylist.view.viewHolder.ProductsViewHolder
 
@@ -32,5 +33,9 @@ class ProductAdapter : RecyclerView.Adapter<ProductsViewHolder>() {
 
     fun attachListener(productListener: ProductListener) {
         listener = productListener
+    }
+    fun updateProduct(list: List<ProductsModel>){
+        productList = list
+        notifyDataSetChanged()
     }
 }

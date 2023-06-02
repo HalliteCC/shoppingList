@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     android:background="@drawable/background"
-    android:padding="6dp"
-    android:layout_margin="8dp">
+    android:padding="6dp">
 
     <ImageView
         android:id="@+id/image_task"
@@ -19,61 +19,65 @@
 
 
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/text_product"
+        style="@style/EditTextWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
         android:text="@string/product"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/image_task"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/text_quantity"
+        style="@style/EditTextWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/quantity"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@id/image_task"
         app:layout_constraintTop_toBottomOf="@id/text_product" />
+
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/x"
+        style="@style/EditTextWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="x"
-        app:layout_constraintStart_toEndOf="@id/text_quantity"
-        app:layout_constraintTop_toTopOf="@id/text_quantity"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@id/text_price"
-        />
+        app:layout_constraintStart_toEndOf="@id/text_quantity"
+        app:layout_constraintTop_toTopOf="@id/text_quantity" />
+
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/text_price"
+        style="@style/EditTextWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/unit_price"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@id/x"
-        app:layout_constraintTop_toTopOf="@id/text_quantity"
-        />
+        app:layout_constraintTop_toTopOf="@id/text_quantity" />
 
     <TextView
-        style="@style/EditTextWhite"
         android:id="@+id/Total_Price"
+        style="@style/EditTextWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Price"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/text_product"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/text_product" />
 
 
     <View

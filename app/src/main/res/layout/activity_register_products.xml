@@ -63,7 +63,6 @@
         android:backgroundTint="#fafafa"
         android:gravity="center"
         android:hint="@string/price"
-        android:text="$ "
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toStartOf="@id/edit_quantity"
         app:layout_constraintStart_toStartOf="parent"

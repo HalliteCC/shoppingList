@@ -14,6 +14,10 @@ class AllProductsViewModel(application: Application) : AndroidViewModel(applicat
     private val _product = MutableLiveData <List<ProductsModel>>()
     val product : LiveData <List<ProductsModel>> = _product
 
+
+    fun delete(id: Int){
+        productsRepository.deleteList(id)
+    }
     fun getAll(){
         _product.value = productsRepository.getAll()
     }

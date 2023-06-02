@@ -17,6 +17,7 @@ class ProductsRepository(context: Context) {
 
     fun deleteList(id: Int) {
         val list = get(id)
+        loginDataBase.deleteProduct(list)
     }
 
     fun get(id: Int): ProductsModel {
