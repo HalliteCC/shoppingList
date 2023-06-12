@@ -16,6 +16,7 @@ class BuyListAdapter : RecyclerView.Adapter<BuyListViewHolder>() {
         val inflater = LayoutInflater.from(parent.context)
         val item = RowPlaceListBinding.inflate(inflater, parent, false)
 
+
         return BuyListViewHolder(item, listener)
     }
 

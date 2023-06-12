@@ -13,7 +13,8 @@ class BuyListViewHolder(private val itemBinding: RowPlaceListBinding, private va
 
     fun bindData(list: BuyListModel) {
         itemBinding.textListName.text = list.listName
-        // preparar função -> itemBinding.textListName.setOnClickListener {}
+
+        itemBinding.textListName.setOnClickListener { listener.onOpenFragment(list.id) }
 
         itemBinding.imgEdit.setOnClickListener {listener.onListClick(list.id) }
 
@@ -27,10 +28,7 @@ class BuyListViewHolder(private val itemBinding: RowPlaceListBinding, private va
                 .show()
             true
         }
-
-
     }
-
 }
 
 

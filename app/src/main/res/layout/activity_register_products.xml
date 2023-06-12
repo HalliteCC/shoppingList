@@ -78,6 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_price" />
 
+
     <CheckBox
         android:id="@+id/check_complete"
         style="@style/EditTextWhite"

@@ -9,7 +9,11 @@
         android:id="@+id/nav_places"
         android:name="com.example.buylist.ui.places.PlaceListFragment"
         android:label="All Shopping Lists"
-        tools:layout="@layout/fragment_buy_lists"/>
+        tools:layout="@layout/fragment_buy_lists">
+        <action
+            android:id="@+id/action_nav_places_to_nav_product2"
+            app:destination="@id/nav_product" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_product"
