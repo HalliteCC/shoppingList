@@ -50,13 +50,11 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
             if(product != "" || str != "" || strQ !=""){
                 var quantity = strQ.toInt()
                 var price = str.toDouble()
-                val check = binding.checkComplete.isChecked
                 val model = ProductsModel().apply {
                     this.id = productId
                     this.products = product
                     this.price = price
                     this.quantity = quantity
-                    this.completed = check
                     this.totalPrice = price * quantity
                 }
                 toast(model)
