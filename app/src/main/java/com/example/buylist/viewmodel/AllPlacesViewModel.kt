@@ -28,5 +28,9 @@ class AllPlacesViewModel(application: Application) : AndroidViewModel(applicatio
         buyListRepository.deleteList(id)
     }
 
+    fun spinner(): List<BuyListModel>{
+        return buyListRepository.getAll()
+    }
+
 }
 

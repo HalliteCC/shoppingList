@@ -3,6 +3,7 @@ package com.example.buylist.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -13,6 +14,8 @@ import com.example.buylist.constants.BuyConstants
 import com.example.buylist.databinding.ActivityRegisterProductsBinding
 import com.example.buylist.model.BuyListModel
 import com.example.buylist.model.ProductsModel
+import com.example.buylist.viewmodel.AllPlacesViewModel
+import com.example.buylist.viewmodel.PlacesViewModel
 import com.example.buylist.viewmodel.ProductsViewModel
 import com.example.buylist.viewmodel.RegisterViewModel
 import java.text.SimpleDateFormat
@@ -22,6 +25,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityRegisterProductsBinding
     private lateinit var viewModel: ProductsViewModel
+    private lateinit var shoppingListViewModel: AllPlacesViewModel
 
     private var productId = 0
 
@@ -39,6 +43,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
 
         observe()
         loadData()
+        loadSpinner()
 
     }
 
@@ -72,7 +77,21 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-     fun observe() {
+    private fun loadSpinner(){
+
+        shoppingListViewModel = ViewModelProvider(this).get(AllPlacesViewModel::class.java)
+        val list = shoppingListViewModel.spinner()
+        val nameList = mutableListOf("Selecione uma opção") // Adiciona a mensagem no início da lista
+        nameList.addAll(list.map { it.listName })
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nameList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerShopping.adapter = adapter
+    }
+
+
+
+    fun observe() {
         viewModel.productSave.observe(this, Observer {
             binding.editDescription.setText(it.products)
         })
