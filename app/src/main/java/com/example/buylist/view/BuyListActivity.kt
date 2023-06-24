@@ -78,4 +78,8 @@ class BuyListActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    fun arrowBack(view: View){
+        onBackPressed()
+    }
+
 }

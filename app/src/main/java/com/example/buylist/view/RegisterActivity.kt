@@ -61,4 +61,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel.create(name, email, password)
     }
+
+    fun arrowBack(view: View){
+        onBackPressed()
+    }
 }

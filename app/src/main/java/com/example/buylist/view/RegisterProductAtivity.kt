@@ -89,8 +89,6 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
         binding.spinnerShopping.adapter = adapter
     }
 
-
-
     fun observe() {
         viewModel.productSave.observe(this, Observer {
             binding.editDescription.setText(it.products)
@@ -116,5 +114,9 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
         } else {
             Toast.makeText(applicationContext, "FALHA", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun arrowBack(view: View){
+        onBackPressed()
     }
 }

@@ -11,7 +11,7 @@ class ProductsRepository(context: Context) {
         return loginDataBase.insertProduct(products) > 0
     }
 
-    fun uptadeProducts(products: ProductsModel): Boolean {
+    fun updateProducts(products: ProductsModel): Boolean {
         return loginDataBase.updateProduct(products) > 0
     }
 
@@ -27,4 +27,11 @@ class ProductsRepository(context: Context) {
     fun getAll(): List<ProductsModel>{
         return loginDataBase.getAllProduct()
     }
+
+    fun updateProductStatus(id: Int, complete: Boolean) {
+        val product = get(id)
+        product.complete = complete
+        updateProducts(product)
+    }
+
 }

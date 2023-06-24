@@ -24,6 +24,6 @@ class ProductsViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun updateProduct(products: ProductsModel) {
-        productsRepository.uptadeProducts(products)
+        productsRepository.updateProducts(products)
     }
 }

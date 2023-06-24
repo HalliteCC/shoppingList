@@ -9,22 +9,19 @@ import com.example.buylist.listener.ProductListener
 import com.example.buylist.model.BuyListModel
 import com.example.buylist.model.ProductsModel
 import com.example.buylist.view.viewHolder.ProductsViewHolder
-
 class ProductAdapter : RecyclerView.Adapter<ProductsViewHolder>() {
-
 
     private var productList: List<ProductsModel> = listOf()
     private lateinit var listener: ProductListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
-        val inflate = LayoutInflater.from(parent.context)
-        val item = RowProductListBinding.inflate(inflate, parent, false)
-
-        return ProductsViewHolder(item, listener)
+        val inflater = LayoutInflater.from(parent.context)
+        val itemBinding = RowProductListBinding.inflate(inflater, parent, false)
+        return ProductsViewHolder(itemBinding, listener)
     }
 
     override fun getItemCount(): Int {
-        return productList.count()
+        return productList.size
     }
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
@@ -34,8 +31,9 @@ class ProductAdapter : RecyclerView.Adapter<ProductsViewHolder>() {
     fun attachListener(productListener: ProductListener) {
         listener = productListener
     }
-    fun updateProduct(list: List<ProductsModel>){
-        productList = list
+
+    fun updateProduct(products: List<ProductsModel>) {
+        productList = products
         notifyDataSetChanged()
     }
 }

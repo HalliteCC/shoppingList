@@ -25,5 +25,5 @@ class ProductsModel {
     var quantity: Int = 0
 
     @ColumnInfo(name = "completed")
-    var completed: Boolean = false
+    var complete: Boolean = false
 }
