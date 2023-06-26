@@ -36,7 +36,7 @@ class AllProductsViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-    fun getAllProducts(selectedListId: Int): LiveData<List<ProductsModel>> {
-        return productsRepository.getAllProducts(selectedListId)
+    fun getAllProducts(selectedListId: Int) {
+        _product.value = productsRepository.getAllProducts(selectedListId)
     }
 }

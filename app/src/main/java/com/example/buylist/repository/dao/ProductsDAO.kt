@@ -23,5 +23,5 @@ interface ProductsDAO {
     fun getAllProduct(): List<ProductsModel>
 
     @Query("SELECT * FROM productsList WHERE listId = :selectedListId")
-    fun getAllProductsByListId(selectedListId: Int): LiveData<List<ProductsModel>>
+    fun getAllProductsByListId(selectedListId: Int): List<ProductsModel>
 }

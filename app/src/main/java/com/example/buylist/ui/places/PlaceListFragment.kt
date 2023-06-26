@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -58,7 +59,7 @@ class PlaceListFragment : Fragment() {
         val listener = object : BuyListListener {
             override fun onOpenFragment(id: Int) {
                 val navController = Navigation.findNavController(binding.root)
-                navController.navigate(R.id.nav_product)
+                navController.navigate(R.id.nav_product, args = bundleOf("listID" to id))
             }
 
             override fun onListClick(id: Int) {

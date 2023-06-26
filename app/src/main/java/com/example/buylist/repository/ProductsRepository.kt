@@ -35,7 +35,7 @@ class ProductsRepository(context: Context) {
         updateProducts(product)
     }
 
-    fun getAllProducts(selectedListId: Int): LiveData<List<ProductsModel>> {
+    fun getAllProducts(selectedListId: Int): List<ProductsModel> {
         return loginDataBase.getAllProductsByListId(selectedListId)
     }
 }

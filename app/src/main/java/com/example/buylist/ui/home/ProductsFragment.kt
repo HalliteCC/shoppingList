@@ -67,7 +67,10 @@ class ProductsFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        viewModel.getAll()
+        arguments?.getInt("listID")?.let {
+            viewModel.getAllProducts(it)
+        }
+
     }
 
     override fun onDestroyView() {
