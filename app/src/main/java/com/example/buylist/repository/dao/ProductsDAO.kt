@@ -1,7 +1,7 @@
 package com.example.buylist.repository.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.buylist.model.BuyListModel
 import com.example.buylist.model.ProductsModel
 
 @Dao
@@ -21,4 +21,7 @@ interface ProductsDAO {
 
     @Query("SELECT * FROM productsList")
     fun getAllProduct(): List<ProductsModel>
+
+    @Query("SELECT * FROM productsList WHERE listId = :selectedListId")
+    fun getAllProductsByListId(selectedListId: Int): LiveData<List<ProductsModel>>
 }

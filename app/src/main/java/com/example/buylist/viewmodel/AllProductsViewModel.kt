@@ -35,4 +35,8 @@ class AllProductsViewModel(application: Application) : AndroidViewModel(applicat
             _product.value = product.value // Notifica as alterações para o fragmento
         }
     }
+
+    fun getAllProducts(selectedListId: Int): LiveData<List<ProductsModel>> {
+        return productsRepository.getAllProducts(selectedListId)
+    }
 }

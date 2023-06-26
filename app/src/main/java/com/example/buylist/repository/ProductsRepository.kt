@@ -1,6 +1,7 @@
 package com.example.buylist.repository
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.example.buylist.model.ProductsModel
 
 class ProductsRepository(context: Context) {
@@ -34,4 +35,7 @@ class ProductsRepository(context: Context) {
         updateProducts(product)
     }
 
+    fun getAllProducts(selectedListId: Int): LiveData<List<ProductsModel>> {
+        return loginDataBase.getAllProductsByListId(selectedListId)
+    }
 }

@@ -13,24 +13,27 @@ class AllPlacesViewModel(application: Application) : AndroidViewModel(applicatio
     private val buyListRepository = BuyListRepository(application.applicationContext)
 
 
+
     private val _delete = MutableLiveData<ValidationModel>()
     val delete: LiveData<ValidationModel> = _delete
 
     private val _buy = MutableLiveData<List<BuyListModel>>()
     val buy: LiveData<List<BuyListModel>> = _buy
+    val nameList = MutableLiveData<List<String>>()
 
 
-    fun getAll(){
+    fun getAll() {
         _buy.value = buyListRepository.getAll()
     }
 
-    fun delete(id: Int){
+    fun delete(id: Int) {
         buyListRepository.deleteList(id)
     }
 
-    fun spinner(): List<BuyListModel>{
+    fun spinner(): List<BuyListModel> {
         return buyListRepository.getAll()
     }
 
 }
+
 

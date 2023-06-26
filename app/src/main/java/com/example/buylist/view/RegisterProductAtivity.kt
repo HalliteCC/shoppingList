@@ -3,6 +3,7 @@ package com.example.buylist.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var shoppingListViewModel: AllPlacesViewModel
 
     private var productId = 0
+    private var selectedListId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+
     override fun onClick(v: View) {
         if (v.id == R.id.button_save) {
             val product = binding.editDescription.text.toString()
@@ -61,6 +64,7 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
                     this.price = price
                     this.quantity = quantity
                     this.totalPrice = price * quantity
+                    this.listId = selectedListId
                 }
                 toast(model)
             }else {
@@ -77,17 +81,30 @@ class RegisterProductAtivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun loadSpinner(){
-
+    private fun loadSpinner() {
         shoppingListViewModel = ViewModelProvider(this).get(AllPlacesViewModel::class.java)
-        val list = shoppingListViewModel.spinner()
+        val shoppingLists = shoppingListViewModel.spinner()
         val nameList = mutableListOf("Selecione uma opção") // Adiciona a mensagem no início da lista
-        nameList.addAll(list.map { it.listName })
+        nameList.addAll(shoppingLists.map { it.listName })
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, nameList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerShopping.adapter = adapter
+
+        binding.spinnerShopping.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (position > 0) { // Ignora a primeira opção "Selecione uma opção"
+                    val selectedList = shoppingLists[position - 1] // Obtém a lista selecionada do ViewModel
+                    selectedListId = selectedList.id // Obtém o ID da lista selecionada
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Implemente este método se desejar lidar com a situação em que nada é selecionado
+            }
+        }
     }
+
 
     fun observe() {
         viewModel.productSave.observe(this, Observer {

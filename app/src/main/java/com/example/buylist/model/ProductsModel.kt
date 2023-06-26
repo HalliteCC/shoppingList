@@ -12,6 +12,9 @@ class ProductsModel {
     @ColumnInfo(name = "id")
     var id: Int = 0
 
+    @ColumnInfo(name = "listId")
+    var listId: Int = 0
+
     @ColumnInfo(name = "products")
     var products: String = ""
 

@@ -25,4 +25,5 @@
     <string name="quantity">Quantity</string>
     <string name="price">Price</string>
     <string name="unit_price">unit_Price</string>
+    <string name="log_out">Log out</string>
 </resources>

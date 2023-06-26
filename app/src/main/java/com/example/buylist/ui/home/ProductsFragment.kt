@@ -13,10 +13,8 @@ import com.example.buylist.constants.BuyConstants
 import com.example.buylist.databinding.FragmentProductsBinding
 import com.example.buylist.listener.ProductListener
 import com.example.buylist.view.RegisterProductAtivity
-import com.example.buylist.view.adapter.BuyListAdapter
 import com.example.buylist.view.adapter.ProductAdapter
 import com.example.buylist.viewmodel.AllProductsViewModel
-import com.example.buylist.viewmodel.ProductsViewModel
 
 
 class ProductsFragment : Fragment() {
